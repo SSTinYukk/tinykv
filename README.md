@@ -18,7 +18,7 @@ The whole project is a skeleton code for a key-value server and a scheduler serv
 * [Multi-raft KV](doc/project3-MultiRaftKV.md)
   * Implement membership change and leadership change to Raft algorithm.
   * Implement conf change and region split on Raft store.
-  * Implement a basic scheduler.
+  * Implement a basic scheduler. 
 * [Transaction](doc/project4-Transaction.md)
   * Implement the multi-version concurrency control layer.
   * Implement handlers of `KvGet`, `KvPrewrite`, and `KvCommit` requests.
