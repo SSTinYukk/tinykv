@@ -13,27 +13,26 @@ type Config struct {
 	SchedulerAddr string
 	LogLevel      string
 
-	DBPath string // Directory to store the data in. Should exist and be writable.
-
-	// raft_base_tick_interval is a base tick interval (ms).
+	DBPath string // 用于存储数据的目录。应该存在并可写。
+	//raft_base_tick_间隔是一个基本间隔（ms）。
 	RaftBaseTickInterval     time.Duration
 	RaftHeartbeatTicks       int
 	RaftElectionTimeoutTicks int
 
-	// Interval to gc unnecessary raft log (ms).
+	//到gc记录的间隔（ms）。
 	RaftLogGCTickInterval time.Duration
-	// When entry count exceed this value, gc will be forced trigger.
+	//当条目计数超过此值时，gc将被强制触发。
 	RaftLogGcCountLimit uint64
 
-	// Interval (ms) to check region whether need to be split or not.
+	//检查区域是否需要分割的间隔（毫秒）。
 	SplitRegionCheckTickInterval time.Duration
-	// delay time before deleting a stale peer
+	//删除过时对等点之前的延迟时间
 	SchedulerHeartbeatTickInterval      time.Duration
 	SchedulerStoreHeartbeatTickInterval time.Duration
 
-	// When region [a,e) size meets regionMaxSize, it will be split into
-	// several regions [a,b), [b,c), [c,d), [d,e). And the size of [a,b),
-	// [b,c), [c,d) will be regionSplitSize (maybe a little larger).
+	//当区域[a，e]大小满足区域MaxSize时，它将被拆分为
+	//几个区域[a，b]、[b，c]、[c，d]、[d，e]以及[a，b]的大小，
+	//[b，c]，[c，d）将是区域分裂（可能稍大一点）。
 	RegionMaxSize   uint64
 	RegionSplitSize uint64
 }
@@ -70,7 +69,7 @@ func NewDefaultConfig() *Config {
 		RaftHeartbeatTicks:       2,
 		RaftElectionTimeoutTicks: 10,
 		RaftLogGCTickInterval:    10 * time.Second,
-		// Assume the average size of entries is 1k.
+		//假设条目的平均大小为1k。
 		RaftLogGcCountLimit:                 128000,
 		SplitRegionCheckTickInterval:        10 * time.Second,
 		SchedulerHeartbeatTickInterval:      100 * time.Millisecond,

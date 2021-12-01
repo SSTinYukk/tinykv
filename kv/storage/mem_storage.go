@@ -10,8 +10,8 @@ import (
 	"github.com/pingcap-incubator/tinykv/proto/pkg/kvrpcpb"
 )
 
-// MemStorage is an in-memory storage engine used for testing. Data is not written to disk, nor sent to other
-// nodes. It is intended for testing only.
+//MemStorage是用于测试的内存存储引擎。数据不会写入磁盘，也不会发送到其他磁盘
+//节点。它仅用于测试。
 type MemStorage struct {
 	CfDefault *llrb.LLRB
 	CfLock    *llrb.LLRB

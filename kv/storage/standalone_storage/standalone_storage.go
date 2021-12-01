@@ -6,10 +6,10 @@ import (
 	"github.com/pingcap-incubator/tinykv/proto/pkg/kvrpcpb"
 )
 
-// StandAloneStorage is an implementation of `Storage` for a single-node TinyKV instance. It does not
-// communicate with other nodes and all data is stored locally.
+//StandAloneStorage是单节点TinyKV实例的“存储”实现。事实并非如此
+//与其他节点通信，所有数据都存储在本地。
 type StandAloneStorage struct {
-	// Your Data Here (1).
+	Config *config.Config
 }
 
 func NewStandAloneStorage(conf *config.Config) *StandAloneStorage {
@@ -20,8 +20,7 @@ func NewStandAloneStorage(conf *config.Config) *StandAloneStorage {
 func (s *StandAloneStorage) Start() error {
 	// Your Code Here (1).
 	return nil
-}
-
+} 
 func (s *StandAloneStorage) Stop() error {
 	// Your Code Here (1).
 	return nil

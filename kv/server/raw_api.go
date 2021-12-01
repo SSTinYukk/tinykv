@@ -5,10 +5,9 @@ import (
 	"github.com/pingcap-incubator/tinykv/proto/pkg/kvrpcpb"
 )
 
-// The functions below are Server's Raw API. (implements TinyKvServer).
-// Some helper methods can be found in sever.go in the current directory
-
-// RawGet return the corresponding Get response based on RawGetRequest's CF and Key fields
+//下面的函数是服务器的原始API。（实现TinyKvServer）。
+//在当前目录的sever.go中可以找到一些帮助器方法
+//RawGet根据RawGetRequest的CF和Key字段返回相应的Get响应
 func (server *Server) RawGet(_ context.Context, req *kvrpcpb.RawGetRequest) (*kvrpcpb.RawGetResponse, error) {
 	
 	// Your Code Here (1).
