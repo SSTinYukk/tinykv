@@ -14,23 +14,22 @@ func (server *Server) RawGet(_ context.Context, req *kvrpcpb.RawGetRequest) (*kv
 	return nil, nil
 }
 
-// RawPut puts the target data into storage and returns the corresponding response
+//RawPut将目标数据放入存储器并返回相应的响应
 func (server *Server) RawPut(_ context.Context, req *kvrpcpb.RawPutRequest) (*kvrpcpb.RawPutResponse, error) {
 	// Your Code Here (1).
-	// Hint: Consider using Storage.Modify to store data to be modified
+	//提示：考虑使用存储。修改以存储要修改的数据。
 	return nil, nil
 }
 
-// RawDelete delete the target data from storage and returns the corresponding response
+//RawDelete从存储器中删除目标数据并返回相应的响应
 func (server *Server) RawDelete(_ context.Context, req *kvrpcpb.RawDeleteRequest) (*kvrpcpb.RawDeleteResponse, error) {
 	// Your Code Here (1).
-	// Hint: Consider using Storage.Modify to store data to be deleted
+	//提示：考虑使用存储。修改以存储要删除的数据。
 	return nil, nil
 }
 
-// RawScan scan the data starting from the start key up to limit. and return the corresponding result
+//RawScan从开始键开始扫描数据，直到限制。并返回相应的结果
 func (server *Server) RawScan(_ context.Context, req *kvrpcpb.RawScanRequest) (*kvrpcpb.RawScanResponse, error) {
-	// Your Code Here (1).
-	// Hint: Consider using reader.IterCF
+	//提示：考虑使用Realer-TyrCF。
 	return nil, nil
 }

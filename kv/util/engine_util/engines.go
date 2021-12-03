@@ -7,15 +7,15 @@ import (
 	"github.com/pingcap-incubator/tinykv/log"
 )
 
-// Engines keeps references to and data for the engines used by unistore.
-// All engines are badger key/value databases.
-// the Path fields are the filesystem path to where the data is stored.
+//Engines保留unistore使用的引擎的引用和数据。
+//所有引擎都是badger键/值数据库。
+//路径字段是存储数据的文件系统路径。
 type Engines struct {
-	// Data, including data which is committed (i.e., committed across other nodes) and un-committed (i.e., only present
-	// locally).
+	//数据，包括已提交（即跨其他节点提交）和未提交（即仅存在）的数据
+	//本地）。
 	Kv     *badger.DB
 	KvPath string
-	// Metadata used by Raft.
+	//Raft使用的元数据。
 	Raft     *badger.DB
 	RaftPath string
 }
@@ -60,11 +60,11 @@ func (en *Engines) Destroy() error {
 	return nil
 }
 
-// CreateDB creates a new Badger DB on disk at subPath.
+//CreateDB在子路径的磁盘上创建一个新的Badger DB。
 func CreateDB(path string, raft bool) *badger.DB {
 	opts := badger.DefaultOptions
 	if raft {
-		// Do not need to write blob for raft engine because it will be deleted soon.
+		//不需要为raft引擎编写blob，因为它将很快被删除。
 		opts.ValueThreshold = 0
 	}
 	opts.Dir = path

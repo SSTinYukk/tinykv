@@ -9,7 +9,7 @@ type CFItem struct {
 	prefixLen int
 }
 
-// String returns a string representation of Item
+//String返回项的字符串表示形式
 func (i *CFItem) String() string {
 	return i.item.String()
 }
@@ -96,27 +96,26 @@ func (it *BadgerIterator) Rewind() {
 }
 
 type DBIterator interface {
-	// Item returns pointer to the current key-value pair.
+	//项返回指向当前键值对的指针。
 	Item() DBItem
-	// Valid returns false when iteration is done.
+	//当迭代完成时，Valid返回false。
 	Valid() bool
-	// Next would advance the iterator by one. Always check it.Valid() after a Next()
-	// to ensure you have access to a valid it.Item().
+	//接下来将迭代器向前推进一步。总是在下一个（）之后检查它。Valid（）
+	//以确保您有权访问有效的it.Item（）。
 	Next()
-	// Seek would seek to the provided key if present. If absent, it would seek to the next smallest key
-	// greater than provided.
+	//Seek将查找提供的密钥（如果存在）。如果不存在，它将寻找下一个最小的键
+	//大于所提供的。
 	Seek([]byte)
 
-	// Close the iterator
+	//关闭迭代器
 	Close()
 }
 
 type DBItem interface {
-	// Key returns the key.
+	//键返回键。
 	Key() []byte
-	// KeyCopy returns a copy of the key of the item, writing it to dst slice.
-	// If nil is passed, or capacity of dst isn't sufficient, a new slice would be allocated and
-	// returned.
+	//KeyCopy返回项的键的副本，并将其写入dst切片。
+	//如果传递了nil，或者dst的容量不足，则将分配并返回一个新的片。
 	KeyCopy(dst []byte) []byte
 	// Value retrieves the value of the item.
 	Value() ([]byte, error)
